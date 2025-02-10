@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>电商秒杀系统项目实施大纲 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、项目整体大纲第1周：需求分析与架构设计 业务需求梳理： 秒杀场次管理（预热&#x2F;进行中&#x2F;已结束状态） 库存预热：提前加载库存到Redis 秒杀资格验证：黑名单过滤、购买次数限制 异步下单：订单队列削峰 超时订单回滚：30分钟未支付自动释放库存   技术选型确认：选择合适的技术栈（如Spring Cloud, Redis等） 微服务拆分设计：确定各微服务的功能边界 数据库表结构设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电商秒杀系统项目实施大纲">
+<meta property="og:url" content="http://example.com/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、项目整体大纲第1周：需求分析与架构设计 业务需求梳理： 秒杀场次管理（预热&#x2F;进行中&#x2F;已结束状态） 库存预热：提前加载库存到Redis 秒杀资格验证：黑名单过滤、购买次数限制 异步下单：订单队列削峰 超时订单回滚：30分钟未支付自动释放库存   技术选型确认：选择合适的技术栈（如Spring Cloud, Redis等） 微服务拆分设计：确定各微服务的功能边界 数据库表结构设">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-02-10T09:26:00.000Z">
+<meta property="article:modified_time" content="2025-02-10T09:28:18.540Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2025-02-10-大纲" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/" class="article-date">
+  <time class="dt-published" datetime="2025-02-10T09:26:00.000Z" itemprop="datePublished">2025-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      电商秒杀系统项目实施大纲
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="一、项目整体大纲"><a href="#一、项目整体大纲" class="headerlink" title="一、项目整体大纲"></a>一、项目整体大纲</h2><h3 id="第1周：需求分析与架构设计"><a href="#第1周：需求分析与架构设计" class="headerlink" title="第1周：需求分析与架构设计"></a>第1周：需求分析与架构设计</h3><ul>
+<li><strong>业务需求梳理</strong>：<ul>
+<li>秒杀场次管理（预热&#x2F;进行中&#x2F;已结束状态）</li>
+<li>库存预热：提前加载库存到Redis</li>
+<li>秒杀资格验证：黑名单过滤、购买次数限制</li>
+<li>异步下单：订单队列削峰</li>
+<li>超时订单回滚：30分钟未支付自动释放库存</li>
+</ul>
+</li>
+<li><strong>技术选型确认</strong>：选择合适的技术栈（如Spring Cloud, Redis等）</li>
+<li><strong>微服务拆分设计</strong>：确定各微服务的功能边界</li>
+<li><strong>数据库表结构设计</strong>：设计高效的数据存储方案</li>
+</ul>
+<h3 id="第2周：基础框架搭建"><a href="#第2周：基础框架搭建" class="headerlink" title="第2周：基础框架搭建"></a>第2周：基础框架搭建</h3><ul>
+<li><strong>Spring Cloud组件集成</strong>：确保各微服务间能够有效通信</li>
+<li><strong>缓存与消息队列配置</strong>：为高并发场景做好准备</li>
+<li><strong>接口压测环境准备</strong>：构建测试环境以评估系统性能</li>
+</ul>
+<h3 id="第3周：核心功能开发"><a href="#第3周：核心功能开发" class="headerlink" title="第3周：核心功能开发"></a>第3周：核心功能开发</h3><ul>
+<li><strong>商品预热模块</strong>：实现库存预加载功能</li>
+<li><strong>秒杀流程实现</strong>：包括资格验证、下单等关键步骤</li>
+<li><strong>订单服务开发</strong>：处理订单生成、支付等逻辑</li>
+</ul>
+<h3 id="第4周：高并发优化"><a href="#第4周：高并发优化" class="headerlink" title="第4周：高并发优化"></a>第4周：高并发优化</h3><ul>
+<li><strong>缓存策略升级</strong>：<ul>
+<li>Redis Lua脚本实现库存扣减</li>
+<li>热点数据本地缓存（Caffeine）</li>
+<li>缓存空值解决穿透问题</li>
+</ul>
+</li>
+<li><strong>限流策略</strong>：<ul>
+<li>网关层令牌桶限流</li>
+<li>Sentinel热点参数限流</li>
+<li>排队页面静态化</li>
+</ul>
+</li>
+<li><strong>数据库优化</strong>：<ul>
+<li>库存字段使用无符号INT</li>
+<li>订单表分库分表（用户ID取模）</li>
+<li>使用Covering Index优化查询</li>
+</ul>
+</li>
+<li><strong>JVM调优</strong>：<ul>
+<li>G1垃圾回收器配置</li>
+<li>堆外内存控制（Netty）</li>
+<li>Arthas线上诊断</li>
+</ul>
+</li>
+</ul>
+<h3 id="第5周：监控与部署"><a href="#第5周：监控与部署" class="headerlink" title="第5周：监控与部署"></a>第5周：监控与部署</h3><ul>
+<li><p><strong>容器化打包</strong>：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> openjdk:<span class="number">17</span>-jdk-alpine</span><br><span class="line"><span class="keyword">VOLUME</span><span class="language-bash"> /tmp</span></span><br><span class="line"><span class="keyword">ARG</span> JAR_FILE=target/*.jar</span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> <span class="variable">$&#123;JAR_FILE&#125;</span> app.jar</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;-jar&quot;</span>,<span class="string">&quot;-XX:+UseG1GC&quot;</span>,<span class="string">&quot;-Xmx512m&quot;</span>,<span class="string">&quot;/app.jar&quot;</span>]</span></span><br><span class="line">**K8s集群部署**：利用Kubernetes实现自动化运维</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>监控系统集成</strong>：</p>
+</li>
+</ul>
+<p>Prometheus配置</p>
+<p>scrape_configs:</p>
+<ul>
+<li>job_name: ‘seckill’<br>metrics_path: ‘&#x2F;actuator&#x2F;prometheus’<br>static_configs:<ul>
+<li>targets: [‘seckill-service:8080’]</li>
+</ul>
+</li>
+</ul>
+<p>Grafana监控大盘</p>
+<ul>
+<li>JVM内存使用率</li>
+<li>接口QPS&#x2F;TPS</li>
+<li>Redis命中率</li>
+<li>消息队列堆积情况</li>
+</ul>
+<h3 id="第6周：收尾工作"><a href="#第6周：收尾工作" class="headerlink" title="第6周：收尾工作"></a>第6周：收尾工作</h3><p>系统架构设计文档</p>
+<ul>
+<li>架构图（C4模型）</li>
+<li>数据库ER图</li>
+<li>接口文档（Swagger）</li>
+</ul>
+<p>压测报告</p>
+<ul>
+<li>JMeter测试计划</li>
+<li>不同并发量下的性能指标</li>
+<li>GC日志分析</li>
+</ul>
+<p>技术博客输出</p>
+<p>（待定选题）：<br>《秒杀系统十级流量防护设计》<br>《Redis+Lua实现原子库存扣减》<br>《从零搭建K8s监控告警体系》</p>
+<h2 id="二、具体实施步骤详解"><a href="#二、具体实施步骤详解" class="headerlink" title="二、具体实施步骤详解"></a>二、具体实施步骤详解</h2><h3 id="1、需求分析阶段"><a href="#1、需求分析阶段" class="headerlink" title="1、需求分析阶段"></a>1、需求分析阶段</h3><p>功能需求- 秒杀场次管理：预热&#x2F;进行中&#x2F;已结束状态- 库存预热：提前加载库存到Redis- 秒杀资格验证：黑名单过滤、购买次数限制- 异步下单：订单队列削峰- 超时订单回滚：30分钟未支付自动释放库存# 非功能需求- 单机QPS &gt; 3000- 接口响应时间 &lt; 100ms- 支持横向扩展- 99.9%服务可用性</p>
+<h3 id="2、技术架构设计"><a href="#2、技术架构设计" class="headerlink" title="2、技术架构设计"></a>2、技术架构设计</h3><p>￼graph TD  A[客户端] –&gt; B[Nginx]  B –&gt; C[Spring Cloud Gateway]  C –&gt; D[Auth Service]  C –&gt; E[Product Service]  C –&gt; F[Seckill Service]  C –&gt; G[Order Service]  E –&gt; H[Redis Cluster]  F –&gt; I[RabbitMQ]  G –&gt; J[MySQL Cluster]  H –&gt; K[哨兵模式]  J –&gt; L[ShardingSphere]</p>
+<h3 id="3、基础框架搭建"><a href="#3、基础框架搭建" class="headerlink" title="3、基础框架搭建"></a>3、基础框架搭建</h3><h4 id="技术组件清单："><a href="#技术组件清单：" class="headerlink" title="技术组件清单："></a>技术组件清单：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- 注册中心：Nacos 2.2</span><br><span class="line">- 配置中心：Nacos Config</span><br><span class="line">- 服务网关：Spring Cloud Gateway 4.0</span><br><span class="line">- 服务通信：OpenFeign + LoadBalancer</span><br><span class="line">- ORM框架：MyBatis-Plus 3.5</span><br><span class="line">- 接口文档：Knife4j + Swagger3</span><br><span class="line">- 单元测试：Testcontainers</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="关键配置示例："><a href="#关键配置示例：" class="headerlink" title="关键配置示例："></a>关键配置示例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line"> cloud:</span><br><span class="line">  gateway:</span><br><span class="line">   routes:</span><br><span class="line">    - id: seckill_route</span><br><span class="line">     uri: lb://seckill-service</span><br><span class="line">     predicates:</span><br><span class="line">      - Path=/api/seckill/**</span><br><span class="line">     filters:</span><br><span class="line">      - StripPrefix=2</span><br><span class="line">      - name: RequestRateLimiter</span><br><span class="line">       args:</span><br><span class="line">        redis-rate-limiter.replenishRate: 1000</span><br><span class="line">        redis-rate-limiter.burstCapacity: 2000</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、核心功能开发"><a href="#4、核心功能开发" class="headerlink" title="4、核心功能开发"></a>4、核心功能开发</h3><h4 id="用户服务"><a href="#用户服务" class="headerlink" title="用户服务"></a>用户服务</h4><ul>
+<li>JWT鉴权实现</li>
+<li>黑名单过滤器（Guava Cache）</li>
+<li>分布式会话管理</li>
+</ul>
+<h4 id="商品服务"><a href="#商品服务" class="headerlink" title="商品服务"></a>商品服务</h4><ul>
+<li>定时任务预热库存到Redis</li>
+<li>商品详情页静态化</li>
+<li>库存校验原子操作：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Long</span> <span class="variable">stock</span> <span class="operator">=</span> redisTemplate.opsForValue().decrement(<span class="string">&quot;stock:&quot;</span>+skuId);</span><br><span class="line"><span class="keyword">if</span> (stock &lt; <span class="number">0</span>) &#123;</span><br><span class="line">  redisTemplate.opsForValue().increment(<span class="string">&quot;stock:&quot;</span>+skuId);</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BusinessException</span>(<span class="string">&quot;库存不足&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="秒杀服务"><a href="#秒杀服务" class="headerlink" title="秒杀服务"></a>秒杀服务</h4><ul>
+<li>秒杀令牌生成（HMAC-SHA256）</li>
+<li>队列泄洪实现：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderQueueService</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">ExecutorService</span> <span class="variable">pool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">20</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createOrderAsync</span><span class="params">(OrderRequest request)</span> &#123;</span><br><span class="line">    pool.submit(() -&gt; &#123;</span><br><span class="line">      <span class="comment">// 数据库操作</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="订单服务"><a href="#订单服务" class="headerlink" title="订单服务"></a>订单服务</h4><ul>
+<li>唯一订单号生成（雪花算法）</li>
+<li>延迟队列处理超时订单：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RabbitListener(queues = &quot;order.delay.queue&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">processExpiredOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(order.getStatus() == UNPAID) &#123;</span><br><span class="line">    orderService.cancelOrder(order.getId());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、重点难点解决方案"><a href="#三、重点难点解决方案" class="headerlink" title="三、重点难点解决方案"></a>三、重点难点解决方案</h2><h3 id="1-超卖问题"><a href="#1-超卖问题" class="headerlink" title="1. 超卖问题"></a>1. 超卖问题</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 解决方案：Redis原子操作 + 数据库乐观锁</span><br><span class="line">- 实现步骤：</span><br><span class="line">  1. Redis预减库存（decrement）</span><br><span class="line">  2. 数据库扣减时验证版本号</span><br><span class="line">  3. 异步补偿机制处理不一致</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-热点数据"><a href="#2-热点数据" class="headerlink" title="2. 热点数据"></a>2. 热点数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 应对策略：</span><br><span class="line">  - 本地缓存 + Redis多级缓存</span><br><span class="line">  - 请求散列：对相同商品ID做hash路由</span><br><span class="line">  - 限流降级：自动屏蔽高频访问商品</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-流量削峰"><a href="#3-流量削峰" class="headerlink" title="3. 流量削峰"></a>3. 流量削峰</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 技术组合：</span><br><span class="line">  1. 前端：随机延迟提交 + 验证码</span><br><span class="line">  2. 网关：请求队列化 + 速率限制</span><br><span class="line">  3. 后端：消息队列异步处理</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、成果交付物清单"><a href="#四、成果交付物清单" class="headerlink" title="四、成果交付物清单"></a>四、成果交付物清单</h2><h3 id="1、代码仓库："><a href="#1、代码仓库：" class="headerlink" title="1、代码仓库："></a>1、<strong>代码仓库</strong>：</h3><ul>
+<li>模块清晰的Maven多模块项目</li>
+<li>完善的单元测试（覆盖率&gt;70%）</li>
+<li>一键启动脚本（docker-compose.yml）</li>
+</ul>
+<h3 id="2、文档输出："><a href="#2、文档输出：" class="headerlink" title="2、文档输出："></a>2、<strong>文档输出</strong>：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">## 系统架构设计文档</span><br><span class="line">- 架构图（C4模型）</span><br><span class="line">- 数据库ER图</span><br><span class="line">- 接口文档（Swagger）</span><br><span class="line"></span><br><span class="line">## 压测报告</span><br><span class="line">- JMeter测试计划</span><br><span class="line">- 不同并发量下的性能指标</span><br><span class="line">- GC日志分析</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/" data-id="cm6yuxo6b0000bgsaa5jabju2" data-title="电商秒杀系统项目实施大纲" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/">电商秒杀系统项目实施大纲</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
