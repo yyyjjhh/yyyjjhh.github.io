@@ -69,6 +69,180 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-blank" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/14/blank/" class="article-date">
+  <time class="dt-published" datetime="2025-02-14T01:36:33.612Z" itemprop="datePublished">2025-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head>
+    <title>Blank Page</title>
+</head>
+<body>
+<!-- 这个页面是故意留空的 -->
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/02/14/blank/" data-id="cm743pj5x0001dosa1wll3h0d" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2025-02-11-准备工作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/11/2025-02-11-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2025-02-11T05:56:45.626Z" itemprop="datePublished">2025-02-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>根据项目大纲，建议第一天聚焦需求分析的细化落地。以下是具体实施建议：</p>
+<h3 id="一、需求分析会议（2小时）"><a href="#一、需求分析会议（2小时）" class="headerlink" title="一、需求分析会议（2小时）"></a>一、需求分析会议（2小时）</h3><ol>
+<li><p><strong>业务需求确认</strong></p>
+<ul>
+<li>绘制核心业务流程图（示例）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"> participant 用户</span><br><span class="line"> participant 系统</span><br><span class="line"> 用户-&gt;&gt;系统: 进入秒杀列表页</span><br><span class="line"> 系统-&gt;&gt;Redis: 读取预热数据</span><br><span class="line"> 用户-&gt;&gt;系统: 点击立即抢购</span><br><span class="line"> 系统-&gt;&gt;系统: 黑名单校验</span><br><span class="line"> 系统-&gt;&gt;Redis: 库存预扣减</span><br><span class="line"> 系统-&gt;&gt;RabbitMQ: 发送下单消息</span><br><span class="line"> MQ--&gt;&gt;系统: 异步创建订单</span><br><span class="line"> 系统-&gt;&gt;用户: 跳转支付页面</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>非功能需求量化</strong></p>
+<ul>
+<li>制定SLA指标表格：<table>
+<thead>
+<tr>
+<th>指标项</th>
+<th>目标值</th>
+<th>测量方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>并发承载能力</td>
+<td>≥10000 TPS</td>
+<td>JMeter集群压测</td>
+</tr>
+<tr>
+<td>接口响应时间</td>
+<td>平均&lt;50ms</td>
+<td>Prometheus P99监控</td>
+</tr>
+<tr>
+<td>系统可用性</td>
+<td>99.99%</td>
+<td>全年停机时间≤52分钟</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、用例文档编写（3小时）"><a href="#二、用例文档编写（3小时）" class="headerlink" title="二、用例文档编写（3小时）"></a>二、用例文档编写（3小时）</h3><ol>
+<li><strong>核心用例模板示例</strong><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 用例UC-01：参与秒杀活动</span></span><br><span class="line"><span class="strong">**参与者**</span>：注册用户</span><br><span class="line"><span class="strong">**前置条件**</span>：</span><br><span class="line"><span class="bullet">1.</span> 用户已完成登录</span><br><span class="line"><span class="bullet">2.</span> 目标秒杀场次处于进行中状态</span><br><span class="line"></span><br><span class="line"><span class="strong">**主流程**</span>：</span><br><span class="line"><span class="bullet">1.</span> 系统校验用户账号状态（不在黑名单）</span><br><span class="line"><span class="bullet">2.</span> 系统校验用户当日参与次数（&lt;3次）</span><br><span class="line"><span class="bullet">3.</span> 系统执行Redis库存扣减（lua脚本）</span><br><span class="line"><span class="bullet">4.</span> 生成临时订单令牌（有效期5分钟）</span><br><span class="line"><span class="bullet">5.</span> 订单数据写入RabbitMQ队列</span><br><span class="line"><span class="bullet">6.</span> 返回抢购成功等待支付结果</span><br><span class="line"></span><br><span class="line"><span class="strong">**异常流**</span>：</span><br><span class="line"><span class="bullet">-</span> E1：库存不足 → 返回&quot;商品已售罄&quot;提示</span><br><span class="line"><span class="bullet">-</span> E2：重复请求 → 返回&quot;请求正在处理中&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="三、技术选型论证（1小时）"><a href="#三、技术选型论证（1小时）" class="headerlink" title="三、技术选型论证（1小时）"></a>三、技术选型论证（1小时）</h3><ol>
+<li><strong>关键技术对比表</strong><table>
+<thead>
+<tr>
+<th>技术点</th>
+<th>候选方案</th>
+<th>选择理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缓存方案</td>
+<td>Redis vs Memcached</td>
+<td>Redis支持Lua原子操作和持久化</td>
+</tr>
+<tr>
+<td>消息队列</td>
+<td>RabbitMQ vs Kafka</td>
+<td>RabbitMQ的延迟队列特性更符合需求</td>
+</tr>
+<tr>
+<td>限流组件</td>
+<td>Sentinel vs Hystrix</td>
+<td>Sentinel的热点参数限流能力更强</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="四、架构设计初稿（2小时）"><a href="#四、架构设计初稿（2小时）" class="headerlink" title="四、架构设计初稿（2小时）"></a>四、架构设计初稿（2小时）</h3><ol>
+<li><p><strong>C4模型设计</strong></p>
+<ul>
+<li>Context Level：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">  A[外部系统] --&gt; B[支付网关]</span><br><span class="line">  C[用户端APP] --&gt; D[秒杀系统]</span><br><span class="line">  D --&gt; E[物流系统]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>关键设计决策记录</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 设计决策DD-01：采用异步下单模式</span></span><br><span class="line"><span class="strong">**备选方案**</span>：</span><br><span class="line"><span class="bullet">1.</span> 同步下单（数据库直接写入）</span><br><span class="line"><span class="bullet">2.</span> 消息队列异步处理</span><br><span class="line"></span><br><span class="line"><span class="strong">**决策依据**</span>：</span><br><span class="line"><span class="bullet">-</span> 压测数据显示同步方案在3000QPS时数据库连接池耗尽</span><br><span class="line"><span class="bullet">-</span> 异步方案可将数据库写入峰值从5000次/s降至800次/s</span><br><span class="line"><span class="bullet">-</span> 消息堆积时可通过增加消费者水平扩展</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="五、数据库设计草稿（2小时）"><a href="#五、数据库设计草稿（2小时）" class="headerlink" title="五、数据库设计草稿（2小时）"></a>五、数据库设计草稿（2小时）</h3><ol>
+<li><strong>核心表结构示例</strong><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> `seckill_activity` (</span><br><span class="line">  `id` <span class="type">BIGINT</span> UNSIGNED <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;活动ID&#x27;</span>,</span><br><span class="line">  `title` <span class="type">VARCHAR</span>(<span class="number">120</span>) <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;活动名称&#x27;</span>,</span><br><span class="line">  `start_time` DATETIME(<span class="number">3</span>) <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;开始时间&#x27;</span>,</span><br><span class="line">  `preheat_time` DATETIME(<span class="number">3</span>) <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;预热时间&#x27;</span>,</span><br><span class="line">  `status` TINYINT <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;0未开始 1预热中 2进行中 3已结束&#x27;</span>,</span><br><span class="line">  `stock_preheated` <span class="type">INT</span> UNSIGNED <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;预热库存量&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`id`),</span><br><span class="line">  INDEX `idx_time` (`start_time`, `preheat_time`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="六、当日产出物清单"><a href="#六、当日产出物清单" class="headerlink" title="六、当日产出物清单"></a>六、当日产出物清单</h3><ol>
+<li><strong>需求文档</strong><ul>
+<li>业务流程图（Visio或在线工具绘制）</li>
+<li>用例文档（含3-5个核心用例）</li>
+</ul>
+</li>
+<li><strong>技术文档</strong><ul>
+<li>架构设计草图（C4模型Level1-2）</li>
+<li>技术选型对比表</li>
+</ul>
+</li>
+<li><strong>开发准备</strong><ul>
+<li>初始化Git仓库（含基础pom.xml）</li>
+<li>数据库建表语句V0.1</li>
+</ul>
+</li>
+</ol>
+<p>建议当天结束时进行站会确认：</p>
+<ol>
+<li>所有业务场景是否覆盖完全？</li>
+<li>技术选型是否存在团队知识盲区？</li>
+<li>数据库设计是否满足查询需求？</li>
+</ol>
+<blockquote>
+<p>注意事项：需求分析阶段务必与业务方确认秒杀规则细节，例如：</p>
+<ul>
+<li>是否允许同一用户多设备同时抢购</li>
+<li>库存回滚时是否优先补充活动库存</li>
+<li>支付超时时间是否要区分渠道（APP&#x2F;小程序）</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/02/11/2025-02-11-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/" data-id="cm743pj5z0002dosa55032zu2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2025-02-10-大纲" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/" class="article-date">
@@ -222,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/" data-id="cm6zwx2bc0000k4sa0aom3623" data-title="电商秒杀系统项目实施大纲" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/" data-id="cm743pj5t0000dosa7ap29k15" data-title="电商秒杀系统项目实施大纲" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -263,6 +437,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/02/14/blank/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/02/11/2025-02-11-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2025/02/10/2025-02-10-%E5%A4%A7%E7%BA%B2/">电商秒杀系统项目实施大纲</a>
